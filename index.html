@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taskflow</title>
+  <title>TaskFlow</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,8 @@
   <div class="app">
 
     <header class="topbar">
-      <h1>Taskflow</h1>
+      <h1>TaskFlow</h1>
+      <p>Organiza tus tareas fácilmente</p>
     </header>
 
     <div class="layout">
@@ -27,21 +28,32 @@
       <main class="main-content">
 
         <form class="task-creator">
-          <input type="text" placeholder="Escribe una tarea...">
-          
-          <select>
+
+          <input 
+            type="text" 
+            placeholder="Escribe una tarea..."
+          >
+
+          <select name="priority">
             <option value="alta">Alta</option>
             <option value="media">Media</option>
             <option value="baja">Baja</option>
           </select>
 
-          <button type="submit">Crear</button>
+          
+          <select name="category">
+            <option value="Trabajo">Trabajo</option>
+            <option value="Casa">Casa</option>
+            <option value="Personal">Personal</option>
+          </select>
+
+          <button type="submit">Añadir</button>
+
         </form>
 
-        <input type="text" class="search-input" placeholder="Buscar tarea...">
-
+        <!-- LISTA DE TAREAS -->
         <section class="task-list">
-          <!-- tareas dinámicas -->
+          <!-- Aquí se insertan las tareas dinámicamente -->
         </section>
 
       </main>
@@ -50,7 +62,7 @@
 
   </div>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
