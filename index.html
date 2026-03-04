@@ -1,115 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <title>TaskFlow - Lista de Tareas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Explorer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Movie Explorer</h1>
-    </header>
+<header>
+    <h1>Lista de Tareas</h1>
+</header>
 
-    <div class="container">
+<main>
 
-        <aside>
-            <h2>Categorías</h2>
-            <ul>
-                <li>Acción</li>
-                <li>Drama</li>
-                <li>Comedia</li>
-                <li>Ciencia Ficción</li>
-                <li>Animación</li>
-                <li>Thriller</li>
-            </ul>
-        </aside>
+    <aside>
+        <h2>Categorías</h2>
+        <ul>
+            <li>Trabajo</li>
+            <li>Estudio</li>
+            <li>Personal</li>
+        </ul>
+    </aside>
 
-        <main>
-            <section class="movie-list">
+    <section class="tasks">
 
-                <article class="movie-card">
+        <div class="task">
+            <div class="task-info">
+                <h3>Estudiar Flexbox</h3>
+                <p>Estudio</p>
+            </div>
+            <span class="badge high">Alta</span>
+        </div>
 
-                    <img src="interstellar.jpg" alt="Interstellar" class="movie-img">
+        <div class="task">
+            <div class="task-info">
+                <h3>Hacer la compra</h3>
+                <p>Personal</p>
+            </div>
+            <span class="badge medium">Media</span>
+        </div>
 
-                    <div class="movie-info">
-                        <h3>Interstellar</h3>
-                        <p class="genre">Ciencia Ficción</p>
-                        <p class="description">Un viaje interestelar en busca de un nuevo hogar para la humanidad.</p>
-                    </div>
-                    <span class="badge estreno">Estreno</span>
-                </article>
+        <div class="task">
+            <div class="task-info">
+                <h3>Enviar proyecto a GitHub</h3>
+                <p>Trabajo</p>
+            </div>
+            <span class="badge low">Baja</span>
+        </div>
 
-                <article class="movie-card">
+    </section>
 
-                    <img src="John Wick.jpg" alt="John Wick" class="movie-img">
-
-                    <div class="movie-info">
-                        <h3>John Wick</h3>
-                        <p class="genre">Acción</p>
-                        <p class="description">Un exasesino regresa al mundo criminal por venganza.</p>
-                    </div>
-                    <span class="badge top">Top</span>
-                </article>
-
-                <article class="movie-card">
-
-                    <img src="la la land.jpg" alt="La la land" class="movie-img">
-
-                    <div class="movie-info">
-                        <h3>La La Land</h3>
-                        <p class="genre">Drama / Musical</p>
-                        <p class="description">Una historia de amor entre una actriz y un músico en los Ángeles.</p>
-                    </div>
-                    <span class="badge hd">HD</span>
-                </article>
-
-                <article class="movie-card">
-
-                    <img src="Dune.jpg" alt="Dune" class="movie-img">
-
-                    <div class="movie-info">
-                        <h3>Dune</h3>
-                        <p class="genre">Ciencia Ficción</p>
-                        <p class="description">La lucha por el control del planeta deséritco Arrakis.</p>
-                    </div>
-                    <span class="badge top">Top</span>
-                </article>
-
-                <article class="movie-card">
-
-                    <img src="The Batman.jpg" alt="The Batman" class="movie-img">
-
-                    <div class="movie-info">
-                        <h3>The Batman</h3>
-                        <p class="genre">Acción / Crimen</p>
-                        <p class="description">Un enfoque oscuro del protector de Gotham.</p>
-                    </div>
-                    <span class="badge hd">HD</span>
-                </article>
-
-                <article class="movie-card">
-
-                    <img src="Inception.jpg" alt="Inception" class="movie-img">
-
-                    <div class="movie-info">
-                        <h3>Inception</h3>
-                        <p class="genre">Ciencia Ficción / Thriller</p>
-                        <p class="description">Un experto en infiltrarse en los sueños recibe la misión de implantar una
-                            idea en la mente de un objetivo.</p>
-                    </div>
-
-                    <span class="badge top">Top</span>
-
-                </article>
-
-            </section>
-        </main>
-    </div>
+</main>
 
 </body>
-
 </html>
