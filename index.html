@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>TaskFlow - Lista de Tareas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskflow</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <h1>Lista de Tareas</h1>
-</header>
+  <div class="app">
 
-<main>
+    <header class="topbar">
+      <h1>Taskflow</h1>
+    </header>
 
-    <aside>
-        <h2>Categorías</h2>
-        <ul>
-            <li>Trabajo</li>
-            <li>Estudio</li>
-            <li>Personal</li>
-        </ul>
-    </aside>
+    <div class="layout">
 
-    <section class="tasks">
+      <aside class="sidebar">
+        <h3>Filtros</h3>
+        <button class="filter active">Todas</button>
+        <button class="filter">Trabajo</button>
+        <button class="filter">Casa</button>
+        <button class="filter">Personal</button>
+      </aside>
 
-        <div class="task">
-            <div class="task-info">
-                <h3>Estudiar Flexbox</h3>
-                <p>Estudio</p>
-            </div>
-            <span class="badge high">Alta</span>
-        </div>
+      <main class="main-content">
 
-        <div class="task">
-            <div class="task-info">
-                <h3>Hacer la compra</h3>
-                <p>Personal</p>
-            </div>
-            <span class="badge medium">Media</span>
-        </div>
+        <form class="task-creator">
+          <input type="text" placeholder="Escribe una tarea...">
+          
+          <select>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
 
-        <div class="task">
-            <div class="task-info">
-                <h3>Enviar proyecto a GitHub</h3>
-                <p>Trabajo</p>
-            </div>
-            <span class="badge low">Baja</span>
-        </div>
+          <button type="submit">Crear</button>
+        </form>
 
-    </section>
+        <input type="text" class="search-input" placeholder="Buscar tarea...">
 
-</main>
+        <section class="task-list">
+          <!-- tareas dinámicas -->
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+<script src="app.js"></script>
 
 </body>
 </html>
