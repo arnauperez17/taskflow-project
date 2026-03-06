@@ -2,67 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskFlow</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 </head>
-<body>
 
-  <div class="app">
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen">
 
-    <header class="topbar">
-      <h1>TaskFlow</h1>
-      <p>Organiza tus tareas fácilmente</p>
-    </header>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-96">
 
-    <div class="layout">
+  <h1 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+    TaskFlow
+  </h1>
 
-      <aside class="sidebar">
-        <h3>Filtros</h3>
-        <button class="filter active">Todas</button>
-        <button class="filter">Trabajo</button>
-        <button class="filter">Casa</button>
-        <button class="filter">Personal</button>
-      </aside>
-
-      <main class="main-content">
-
-        <form class="task-creator">
-
-          <input 
-            type="text" 
-            placeholder="Escribe una tarea..."
-          >
-
-          <select name="priority">
-            <option value="alta">Alta</option>
-            <option value="media">Media</option>
-            <option value="baja">Baja</option>
-          </select>
-
-          
-          <select name="category">
-            <option value="Trabajo">Trabajo</option>
-            <option value="Casa">Casa</option>
-            <option value="Personal">Personal</option>
-          </select>
-
-          <button type="submit">Añadir</button>
-
-        </form>
-
-        <!-- LISTA DE TAREAS -->
-        <section class="task-list">
-          <!-- Aquí se insertan las tareas dinámicamente -->
-        </section>
-
-      </main>
-
-    </div>
-
+  <!-- BOTON MODO OSCURO -->
+  <div class="flex justify-end mb-4">
+    <button id="toggleDark" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:scale-105 transition">
+      🌙
+    </button>
   </div>
 
-  <script src="app.js"></script>
+  <!-- INPUT TAREA -->
+  <div class="flex gap-2 mb-4">
+    <input 
+      id="taskInput"
+      type="text"
+      placeholder="Nueva tarea..."
+      class="flex-1 border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+
+    <button 
+      id="addTask"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+    >
+      Añadir
+    </button>
+  </div>
+
+  <!-- BUSCADOR -->
+  <input 
+    id="search"
+    type="text"
+    placeholder="Buscar tarea..."
+    class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+  >
+
+  <!-- LISTA -->
+  <ul id="taskList" class="space-y-2"></ul>
+
+</div>
+
+<script src="app.js"></script>
 
 </body>
 </html>

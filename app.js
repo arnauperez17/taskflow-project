@@ -1,97 +1,71 @@
-const form = document.querySelector(".task-creator");
-const input = document.querySelector(".task-creator input[type='text']");
-const prioritySelect = document.querySelector(".task-creator select[name='priority']");
-const categorySelect = document.querySelector(".task-creator select[name='category']");
-const taskList = document.querySelector(".task-list");
-const filterButtons = document.querySelectorAll(".filter");
+const taskInput = document.getElementById("taskInput")
+const addTask = document.getElementById("addTask")
+const taskList = document.getElementById("taskList")
+const search = document.getElementById("search")
+const toggleDark = document.getElementById("toggleDark")
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let currentFilter = "Todas";
+// AÑADIR TAREA
+addTask.addEventListener("click", () => {
 
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+  const text = taskInput.value.trim()
 
-function renderTasks() {
-  taskList.innerHTML = "";
+  if (text === "") return
 
-  let filteredTasks = tasks;
+  const li = document.createElement("li")
 
-  if (currentFilter !== "Todas") {
-    filteredTasks = tasks.filter(task => task.category === currentFilter);
+  li.className = "flex justify-between items-center bg-gray-100 dark:bg-gray-700 p-2 rounded"
+
+  li.innerHTML = `
+    <span class="text-gray-800 dark:text-white">${text}</span>
+    <button class="delete bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition">
+      X
+    </button>
+  `
+
+  taskList.appendChild(li)
+
+  taskInput.value = ""
+})
+
+// ELIMINAR TAREA
+taskList.addEventListener("click", (e) => {
+
+  if (e.target.classList.contains("delete")) {
+
+    e.target.parentElement.remove()
+
   }
 
-  filteredTasks.forEach((task, index) => {
-    const taskDiv = document.createElement("div");
-    taskDiv.classList.add("task");
+})
 
-    const title = document.createElement("span");
-    title.textContent = task.text;
+// FILTRAR TAREAS
+search.addEventListener("input", () => {
 
-    const category = document.createElement("small");
-    category.textContent = task.category;
-    category.style.marginLeft = "10px";
-    category.style.opacity = "0.6";
+  const value = search.value.toLowerCase()
 
-    const badge = document.createElement("span");
-    badge.textContent = task.priority;
-    badge.classList.add("priority", task.priority);
+  const tasks = document.querySelectorAll("#taskList li")
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "✖";
-    deleteBtn.style.background = "transparent";
-    deleteBtn.style.border = "none";
-    deleteBtn.style.cursor = "pointer";
-    deleteBtn.style.color = "red";
-    deleteBtn.style.fontSize = "16px";
+  tasks.forEach(task => {
 
-    deleteBtn.addEventListener("click", () => {
-      const realIndex = tasks.findIndex(t => 
-        t.text === task.text &&
-        t.priority === task.priority &&
-        t.category === task.category
-      );
+    const text = task.innerText.toLowerCase()
 
-      tasks.splice(realIndex, 1);
-      saveTasks();
-      renderTasks();
-    });
+    if (text.includes(value)) {
 
-    taskDiv.appendChild(title);
-    taskDiv.appendChild(category);
-    taskDiv.appendChild(badge);
-    taskDiv.appendChild(deleteBtn);
+      task.style.display = "flex"
 
-    taskList.appendChild(taskDiv);
-  });
-}
+    } else {
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+      task.style.display = "none"
 
-  const newTask = {
-    text: input.value.trim(),
-    priority: prioritySelect.value,
-    category: categorySelect.value
-  };
+    }
 
-  if (newTask.text === "") return;
+  })
 
-  tasks.push(newTask);
-  saveTasks();
-  renderTasks();
+})
 
-  form.reset();
-});
+// MODO OSCURO
+toggleDark.addEventListener("click", () => {
 
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+  document.documentElement.classList.toggle("dark")
 
-    currentFilter = button.textContent;
-    renderTasks();
-  });
-});
-
-renderTasks();
+})
