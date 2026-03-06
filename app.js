@@ -4,7 +4,6 @@ const taskList = document.getElementById("taskList")
 const search = document.getElementById("search")
 const toggleDark = document.getElementById("toggleDark")
 
-// AÑADIR TAREA
 addTask.addEventListener("click", () => {
 
   const text = taskInput.value.trim()
@@ -27,7 +26,6 @@ addTask.addEventListener("click", () => {
   taskInput.value = ""
 })
 
-// ELIMINAR TAREA
 taskList.addEventListener("click", (e) => {
 
   if (e.target.classList.contains("delete")) {
@@ -38,7 +36,6 @@ taskList.addEventListener("click", (e) => {
 
 })
 
-// FILTRAR TAREAS
 search.addEventListener("input", () => {
 
   const value = search.value.toLowerCase()
@@ -63,7 +60,6 @@ search.addEventListener("input", () => {
 
 })
 
-// MODO OSCURO
 toggleDark.addEventListener("click", () => {
 
   document.documentElement.classList.toggle("dark")
