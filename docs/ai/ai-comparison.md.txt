@@ -1,0 +1,7 @@
+# Comparativa entre asistentes de IA
+
+En este documento se compararán diferentes asistentes de inteligencia artificial
+como ChatGPT y Claude para analizar cómo ayudan en tareas de programación.
+
+Se evaluará la claridad de las explicaciones, la detección de errores en código
+y la calidad del código generado.

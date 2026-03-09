@@ -1,0 +1,7 @@
+# Experimentos con IA en programación
+
+En este documento se describirán varios experimentos realizados para comparar
+la resolución de problemas de programación con y sin ayuda de inteligencia
+artificial.
+
+Se analizará el tiempo invertido, la calidad del código y la comprensión del problema.

@@ -1,0 +1,7 @@
+# Reflexión final sobre el uso de IA
+
+En este documento se presentará una reflexión personal sobre el uso de
+herramientas de inteligencia artificial durante el desarrollo del proyecto.
+
+Se analizarán sus ventajas, limitaciones y los posibles riesgos de depender
+demasiado de estas herramientas.

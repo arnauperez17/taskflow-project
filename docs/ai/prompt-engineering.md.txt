@@ -1,0 +1,7 @@
+# Prompt Engineering aplicado al desarrollo
+
+En este documento se recopilarán distintos prompts utilizados para interactuar
+con asistentes de inteligencia artificial durante el desarrollo del proyecto.
+
+Se analizará qué tipos de prompts son más efectivos para generar código,
+refactorizar funciones y documentar el proyecto.

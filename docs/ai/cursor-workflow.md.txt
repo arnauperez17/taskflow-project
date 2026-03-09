@@ -1,0 +1,7 @@
+# Flujo de trabajo con Cursor
+
+En este documento se documentará el uso del editor Cursor durante el desarrollo
+del proyecto TaskFlow.
+
+Se describirán las herramientas utilizadas, atajos de teclado y ejemplos
+de cómo la inteligencia artificial ayudó a mejorar el código.
