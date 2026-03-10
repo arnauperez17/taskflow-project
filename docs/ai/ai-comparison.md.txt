@@ -1,7 +1,183 @@
 # Comparativa entre asistentes de IA
 
-En este documento se compararán diferentes asistentes de inteligencia artificial
-como ChatGPT y Claude para analizar cómo ayudan en tareas de programación.
+# Comparativa entre asistentes de IA
 
-Se evaluará la claridad de las explicaciones, la detección de errores en código
-y la calidad del código generado.
+## Introducción
+
+En este documento se comparan dos asistentes de inteligencia artificial: ChatGPT y Claude.
+El objetivo es ver cómo ayudan a entender conceptos de programación, detectar errores en código y generar funciones en JavaScript.
+
+---
+
+## Explicaciones técnicas
+
+### Closures
+
+Prompt utilizado:
+
+Explain the JavaScript concept of closures with a simple example.
+
+ChatGPT:
+
+ChatGPT explicó que un closure es una función que puede acceder a variables de una función externa incluso después de que esa función haya terminado.
+
+Claude:
+
+Claude dio una explicación similar y añadió que esto ocurre porque la función recuerda el entorno donde fue creada.
+
+Comparación:
+
+Ambos explicaron bien el concepto. ChatGPT fue más simple y Claude dio un poco más de detalle.
+
+---
+
+### Event Loop
+
+Prompt utilizado:
+
+Explain how the JavaScript event loop works.
+
+ChatGPT:
+
+ChatGPT explicó que el event loop permite ejecutar tareas asíncronas revisando una cola de tareas cuando el código principal termina.
+
+Claude:
+
+Claude explicó el event loop hablando del call stack y la cola de tareas.
+
+Comparación:
+
+Las dos explicaciones fueron correctas. Claude fue más detallado y ChatGPT más fácil de entender.
+
+---
+
+### Hoisting
+
+Prompt utilizado:
+
+Explain hoisting in JavaScript with an example.
+
+ChatGPT:
+
+ChatGPT explicó que hoisting es cuando JavaScript mueve las declaraciones de variables al inicio del código.
+
+Claude:
+
+Claude explicó lo mismo y mencionó que ocurre principalmente con variables declaradas con `var`.
+
+Comparación:
+
+Ambos asistentes dieron explicaciones correctas y fáciles de entender.
+
+---
+
+## Detección de errores en código
+
+### Bug 1
+
+```javascript
+function sum(a, b) {
+  return a + b
+}
+
+console.log(sum(2))
+```
+
+ChatGPT:
+
+Detectó que la función espera dos parámetros pero solo se está pasando uno.
+
+Claude:
+
+También detectó el mismo problema.
+
+Comparación:
+
+Los dos asistentes encontraron el error sin problemas.
+
+---
+
+### Bug 2
+
+```javascript
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), 1000)
+}
+```
+
+ChatGPT:
+
+Explicó que el problema es usar `var`, ya que todas las funciones usan la misma variable.
+
+Claude:
+
+Dio la misma explicación y sugirió usar `let`.
+
+Comparación:
+
+Ambos identificaron correctamente el error.
+
+---
+
+### Bug 3
+
+```javascript
+function getUserName(user) {
+  return user.name.toUpperCase()
+}
+
+console.log(getUserName(null))
+```
+
+ChatGPT:
+
+Explicó que se intenta acceder a una propiedad de un valor `null`.
+
+Claude:
+
+También detectó el error y sugirió comprobar que el objeto existe.
+
+Comparación:
+
+Claude añadió una solución más completa.
+
+---
+
+## Generación de código
+
+### Función promedio
+
+Prompt:
+
+Create a JavaScript function that receives an array of numbers and returns the average value.
+
+ChatGPT:
+
+```javascript
+function getAverage(numbers) {
+  let sum = numbers.reduce((a, b) => a + b, 0)
+  return sum / numbers.length
+}
+```
+
+Claude:
+
+```javascript
+function getAverage(numbers) {
+  if (numbers.length === 0) return 0
+  const total = numbers.reduce((a, b) => a + b, 0)
+  return total / numbers.length
+}
+```
+
+Análisis:
+
+Las dos funciones funcionan bien, pero Claude añadió una validación extra.
+
+---
+
+## Conclusión
+
+Tanto ChatGPT como Claude son útiles para aprender programación y ayudar a escribir código.
+
+ChatGPT suele dar explicaciones más simples, mientras que Claude a veces añade más detalles o validaciones en el código.
