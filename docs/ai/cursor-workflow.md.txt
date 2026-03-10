@@ -1,7 +1,54 @@
 # Flujo de trabajo con Cursor
 
-En este documento se documentará el uso del editor Cursor durante el desarrollo
-del proyecto TaskFlow.
+# Cursor Workflow
 
-Se describirán las herramientas utilizadas, atajos de teclado y ejemplos
-de cómo la inteligencia artificial ayudó a mejorar el código.
+## Introducción
+
+En este documento se describe el uso de Cursor para trabajar con el proyecto TaskFlow y probar sus herramientas de inteligencia artificial.
+
+## Exploración de la interfaz
+
+Se exploraron las principales partes del editor:
+
+* Explorador de archivos
+* Terminal integrada
+* Editor de código
+* Chat con inteligencia artificial
+
+## Autocompletado
+
+Se probó el autocompletado escribiendo un comentario que describía una función.
+
+```javascript
+// function that adds a new task to a list
+```
+
+Cursor generó automáticamente una función a partir de ese comentario.
+
+## Chat contextual
+
+Se utilizó el chat de Cursor para pedir una explicación de una función del código usando el comando:
+
+Explain this function
+
+La IA explicó qué hacía la función.
+
+## Edición de código
+
+También se utilizó la IA para refactorizar una función y mejorar su claridad.
+
+## Atajos de teclado utilizados
+
+* Ctrl + K → abrir chat de IA
+* Ctrl + S → guardar archivo
+* Ctrl + / → comentar código
+
+## Ejemplos donde Cursor mejoró el código
+
+Ejemplo 1:
+
+Cursor generó automáticamente una función `addTask` a partir de un comentario.
+
+Ejemplo 2:
+
+Cursor explicó el funcionamiento de una función utilizando el chat contextual.
