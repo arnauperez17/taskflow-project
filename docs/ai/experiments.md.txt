@@ -1,7 +1,19 @@
-# Experimentos con IA en programación
+## Conectar servidores MCP
 
-En este documento se describirán varios experimentos realizados para comparar
-la resolución de problemas de programación con y sin ayuda de inteligencia
-artificial.
+Primero investigué qué es MCP (Model Context Protocol). Es un protocolo que permite a la IA acceder a información del proyecto, como archivos o repositorios.
 
-Se analizará el tiempo invertido, la calidad del código y la comprensión del problema.
+Después configuré MCP en Cursor creando el archivo mcp.json y añadiendo un servidor filesystem.
+
+Este servidor permite que la IA lea los archivos del proyecto.
+
+Después probé varias consultas en el chat de Cursor:
+
+1. Muestra los archivos de este proyecto
+2. Explica qué hace el archivo app.js
+3. Qué funciones hay en este proyecto
+4. Explica cómo funciona la búsqueda de tareas
+5. Describe la estructura del proyecto
+
+La IA pudo leer el código y responder usando información del proyecto.
+
+En proyectos reales MCP puede ser útil para que la IA entienda mejor el contexto del código, analice archivos automáticamente y ayude a los desarrolladores a trabajar más rápido.
