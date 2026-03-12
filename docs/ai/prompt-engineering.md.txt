@@ -1,7 +1,123 @@
 # Prompt Engineering aplicado al desarrollo
 
-En este documento se recopilarán distintos prompts utilizados para interactuar
-con asistentes de inteligencia artificial durante el desarrollo del proyecto.
+## Prompt 1 – Definir un rol
 
-Se analizará qué tipos de prompts son más efectivos para generar código,
-refactorizar funciones y documentar el proyecto.
+Prompt utilizado:
+
+Actúa como un desarrollador senior de JavaScript y revisa esta función para mejorar su calidad.
+
+Por qué funciona:
+
+Definir un rol ayuda a que la IA genere respuestas más profesionales y centradas en buenas prácticas de programación.
+
+---
+
+## Prompt 2 – Explicar código
+
+Prompt utilizado:
+
+Explica qué hace esta función de JavaScript de forma sencilla.
+
+Por qué funciona:
+
+Este prompt ayuda a entender partes del código que no están claras.
+
+---
+
+## Prompt 3 – Refactorizar código
+
+Prompt utilizado:
+
+Refactoriza esta función para mejorar la legibilidad del código.
+
+Por qué funciona:
+
+Permite mejorar el código existente haciéndolo más claro y fácil de mantener.
+
+---
+
+## Prompt 4 – Generar una función
+
+Prompt utilizado:
+
+Crea una función en JavaScript que filtre tareas completadas de una lista.
+
+Por qué funciona:
+
+El prompt define claramente qué funcionalidad se necesita.
+
+---
+
+## Prompt 5 – Few-shot prompting
+
+Prompt utilizado:
+
+Ejemplo:
+Entrada: [1,2,3]
+Salida: 2
+
+Ahora crea una función que calcule el promedio de un array de números.
+
+Por qué funciona:
+
+Dar ejemplos ayuda a que la IA entienda mejor el tipo de respuesta esperada.
+
+---
+
+## Prompt 6 – Razonamiento paso a paso
+
+Prompt utilizado:
+
+Explica paso a paso cómo funciona el event loop en JavaScript.
+
+Por qué funciona:
+
+El razonamiento paso a paso hace que la explicación sea más clara.
+
+---
+
+## Prompt 7 – Restricciones
+
+Prompt utilizado:
+
+Genera una función en JavaScript para añadir tareas usando menos de 10 líneas.
+
+Por qué funciona:
+
+Las restricciones ayudan a obtener respuestas más concretas.
+
+---
+
+## Prompt 8 – Documentar código
+
+Prompt utilizado:
+
+Añade comentarios JSDoc a esta función.
+
+Por qué funciona:
+
+Permite generar documentación automáticamente para el código.
+
+---
+
+## Prompt 9 – Detectar errores
+
+Prompt utilizado:
+
+Analiza este código y detecta posibles errores o bugs.
+
+Por qué funciona:
+
+Ayuda a revisar el código y encontrar posibles fallos.
+
+---
+
+## Prompt 10 – Ideas de mejora
+
+Prompt utilizado:
+
+Sugiere mejoras para una aplicación de gestión de tareas.
+
+Por qué funciona:
+
+Permite obtener ideas para mejorar el proyecto.
