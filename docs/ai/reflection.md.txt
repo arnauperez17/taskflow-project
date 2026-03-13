@@ -1,7 +1,13 @@
-# Reflexión final sobre el uso de IA
+# Reflexión final sobre IA y programación
 
-En este documento se presentará una reflexión personal sobre el uso de
-herramientas de inteligencia artificial durante el desarrollo del proyecto.
+Durante este proyecto utilicé herramientas de inteligencia artificial para ayudar en el desarrollo del proyecto TaskFlow. La IA fue útil para generar código, refactorizar funciones y añadir documentación al proyecto.
 
-Se analizarán sus ventajas, limitaciones y los posibles riesgos de depender
-demasiado de estas herramientas.
+Una de las tareas donde más me ayudó fue al mejorar el código existente. Por ejemplo, al pedir a la IA que refactorizara funciones o mejorara nombres de variables, pude hacer que el código fuera más claro y organizado. También fue útil para generar comentarios JSDoc y explicar partes del código que no entendía completamente.
+
+Sin embargo, la IA no siempre genera código perfecto. En algunos casos el código necesitaba ser corregido o adaptado al proyecto. Por eso es importante revisar siempre lo que genera la IA antes de usarlo.
+
+También creo que depender demasiado de la IA puede ser un riesgo. Si un programador solo copia el código generado sin entenderlo, puede tener problemas cuando tenga que solucionar errores o modificar el proyecto.
+
+Por esta razón prefiero programar sin asistencia de IA cuando quiero aprender algo nuevo o entender mejor cómo funciona una parte del código. Resolver los problemas manualmente ayuda a mejorar las habilidades de programación.
+
+En conclusión, la IA es una herramienta muy útil para ayudar en el desarrollo de software, pero debe usarse como apoyo y no como sustituto del programador.
