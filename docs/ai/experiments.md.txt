@@ -1,19 +1,103 @@
-## Conectar servidores MCP
+# Experimentos con IA en programación
 
-Primero investigué qué es MCP (Model Context Protocol). Es un protocolo que permite a la IA acceder a información del proyecto, como archivos o repositorios.
+## Experimento 1 – Función promedio
 
-Después configuré MCP en Cursor creando el archivo mcp.json y añadiendo un servidor filesystem.
+Problema: crear una función que calcule el promedio de un array de números.
 
-Este servidor permite que la IA lea los archivos del proyecto.
+Sin usar IA:
 
-Después probé varias consultas en el chat de Cursor:
+Escribí la función manualmente usando un bucle para sumar los números y dividir entre la cantidad de elementos.
 
-1. Muestra los archivos de este proyecto
-2. Explica qué hace el archivo app.js
-3. Qué funciones hay en este proyecto
-4. Explica cómo funciona la búsqueda de tareas
-5. Describe la estructura del proyecto
+Con ayuda de IA:
 
-La IA pudo leer el código y responder usando información del proyecto.
+Pedí a la IA que generara una función para calcular el promedio de un array. La IA generó el código usando `reduce`.
 
-En proyectos reales MCP puede ser útil para que la IA entienda mejor el contexto del código, analice archivos automáticamente y ayude a los desarrolladores a trabajar más rápido.
+Comparación:
+
+La solución con IA fue más rápida y el código era más corto.
+
+---
+
+## Experimento 2 – Invertir un texto
+
+Problema: crear una función que invierta una cadena de texto.
+
+Sin usar IA:
+
+Utilicé un bucle para recorrer la cadena y construir una nueva cadena al revés.
+
+Con ayuda de IA:
+
+La IA generó una solución usando `split()`, `reverse()` y `join()`.
+
+Comparación:
+
+La solución de la IA fue más simple y clara.
+
+---
+
+## Experimento 3 – Filtrar números
+
+Problema: crear una función que filtre números mayores que 10 en un array.
+
+Sin usar IA:
+
+Utilicé un bucle y una condición para añadir los números válidos a un nuevo array.
+
+Con ayuda de IA:
+
+La IA generó una solución utilizando el método `filter`.
+
+Comparación:
+
+La solución con IA fue más fácil de leer.
+
+---
+
+## Experimentos relacionados con el proyecto TaskFlow
+
+### Experimento 4 – Añadir tarea
+
+Sin usar IA:
+
+Escribí el código para añadir tareas al DOM utilizando `createElement` y `appendChild`.
+
+Con ayuda de IA:
+
+La IA sugirió crear una función separada para generar el elemento de la tarea.
+
+Comparación:
+
+La solución con IA mejoró la organización del código.
+
+---
+
+### Experimento 5 – Búsqueda de tareas
+
+Sin usar IA:
+
+Implementé un sistema de búsqueda recorriendo la lista de tareas y comparando el texto.
+
+Con ayuda de IA:
+
+La IA sugirió simplificar el código utilizando `includes`.
+
+Comparación:
+
+La solución con IA fue más corta y clara.
+
+---
+
+### Experimento 6 – Modo oscuro
+
+Sin usar IA:
+
+Añadí manualmente un botón que activa o desactiva la clase `dark`.
+
+Con ayuda de IA:
+
+La IA recomendó usar `classList.toggle()` para simplificar el código.
+
+Comparación:
+
+La solución con IA fue más simple.
