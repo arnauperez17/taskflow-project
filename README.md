@@ -1,26 +1,47 @@
-# Movie Explorer 
+# TaskFlow
 
-Aplicación web desarrollada como práctica utilizando HTML y CSS.
+TaskFlow es una aplicación web sencilla para gestionar tareas diarias.  
+Permite añadir, eliminar, buscar y marcar tareas como completadas.
 
-## Estructura
-El proyecto está organizado utilizando:
-- header
-- main
-- aside
-- section
+## Funcionalidades
 
-## Estilos
-- Variables CSS definidas en :root
-- Maquetación con Flexbox
-- Diseño responsive con Media Queries
-- Efectos visuales con transition
+- Añadir nuevas tareas
+- Eliminar tareas
+- Marcar tareas como completadas
+- Buscar tareas por texto
+- Guardar tareas en LocalStorage
+- Modo oscuro
 
-## esponsive
-La aplicación se adapta a dispositivos móviles usando:
-@media (max-width: 768px)
+## Tecnologías utilizadas
 
-## Publicación
-Proyecto preparado para ser desplegado en Vercel.
+- HTML
+- Tailwind CSS
+- JavaScript
+- LocalStorage
+- Vercel
+
+## Cómo usar el proyecto
+
+1. Escribe una tarea en el campo de texto.
+2. Pulsa el botón "Añadir".
+3. Haz clic en una tarea para marcarla como completada.
+4. Pulsa la X para eliminar una tarea.
+5. Usa el buscador para filtrar tareas.
+
+## Ejemplo de uso
+
+Ejemplo de tarea:
+
+Comprar pan
+
+## Instalación
+
+1. Clonar el repositorio:
+
+git clone https://github.com/TUUSUARIO/taskflow.git
+
+2. Abrir index.html en el navegador.
 
 ## Autor
-Arnau Pérez # Mi Proyecto
+
+Arnau Pérez

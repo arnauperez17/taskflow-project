@@ -3,59 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>TaskFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
+    tailwind.config = { darkMode: 'class' }
   </script>
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen">
 
-<div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-96">
+  <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-96">
 
-  <h1 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-    TaskFlow
-  </h1>
+    <h1 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
+      TaskFlow
+    </h1>
 
-  <div class="flex justify-end mb-4">
-    <button id="toggleDark" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:scale-105 transition">
-      🌙
-    </button>
-  </div>
+   
+    <div class="flex justify-end mb-4">
+      <button 
+        id="toggleDark"
+        class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:scale-105 transition">
+        🌙
+      </button>
+    </div>
 
- 
-  <div class="flex gap-2 mb-4">
+  
+    <div class="flex gap-2 mb-4">
+      <input 
+        id="taskInput"
+        type="text"
+        placeholder="Nueva tarea..."
+        class="flex-1 border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+
+      <button 
+        id="addTask"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+        Añadir
+      </button>
+    </div>
+
+   
     <input 
-      id="taskInput"
+      id="search"
       type="text"
-      placeholder="Nueva tarea..."
-      class="flex-1 border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Buscar tarea..."
+      class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
     >
 
-    <button 
-      id="addTask"
-      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-    >
-      Añadir
-    </button>
+    
+    <ul id="taskList" class="space-y-2"></ul>
+
   </div>
 
-  <input 
-    id="search"
-    type="text"
-    placeholder="Buscar tarea..."
-    class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-
-  <ul id="taskList" class="space-y-2"></ul>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
