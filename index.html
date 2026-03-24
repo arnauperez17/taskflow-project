@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="">
 <head>
   <meta charset="UTF-8">
   <title>TaskFlow</title>
@@ -7,57 +7,58 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { darkMode: 'class' }
+    tailwind.config = {
+      darkMode: 'class'
+    }
   </script>
 </head>
+<body class="flex items-center justify-center min-h-screen transition bg-gray-100 dark:bg-gray-900">
 
-<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md w-96 transition">
 
-  <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg w-96">
-
-    <h1 class="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-      TaskFlow
-    </h1>
-
-   
-    <div class="flex justify-end mb-4">
-      <button 
-        id="toggleDark"
-        class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:scale-105 transition">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white">TaskFlow</h1>
+      <button id="toggleDark"
+        class="bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded transition">
         🌙
       </button>
     </div>
 
-  
-    <div class="flex gap-2 mb-4">
-      <input 
-        id="taskInput"
-        type="text"
-        placeholder="Nueva tarea..."
-        class="flex-1 border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-      >
+    <div class="flex gap-2 mb-3">
+      <input id="taskInput" type="text" placeholder="Escribe una tarea..."
+        class="border p-2 rounded w-full dark:bg-gray-700 dark:text-white">
 
-      <button 
-        id="addTask"
-        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
-        Añadir
+      <button id="addTask"
+        class="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 transition">
+        +
       </button>
     </div>
 
-   
-    <input 
-      id="search"
-      type="text"
-      placeholder="Buscar tarea..."
-      class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    >
+    <div class="flex gap-2 mb-3">
+      <select id="category"
+        class="border p-2 rounded w-1/2 dark:bg-gray-700 dark:text-white">
+        <option value="Trabajo">Trabajo</option>
+        <option value="Casa">Casa</option>
+        <option value="Estudio">Estudio</option>
+      </select>
 
-    
+      <select id="priority"
+        class="border p-2 rounded w-1/2 dark:bg-gray-700 dark:text-white">
+        <option value="baja">Baja</option>
+        <option value="media">Media</option>
+        <option value="alta">Alta</option>
+      </select>
+    </div>
+
+    <input id="search" type="text" placeholder="Buscar tarea..."
+      class="border p-2 rounded w-full mb-3 dark:bg-gray-700 dark:text-white">
+
+    <p id="taskCount" class="mb-2 text-gray-600 dark:text-gray-300"></p>
+
     <ul id="taskList" class="space-y-2"></ul>
 
   </div>
 
   <script src="app.js"></script>
-
 </body>
 </html>
