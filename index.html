@@ -1,64 +1,36 @@
 <!DOCTYPE html>
-<html lang="es" class="">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>TaskFlow</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
 </head>
-<body class="flex items-center justify-center min-h-screen transition bg-gray-100 dark:bg-gray-900">
-
-  <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md w-96 transition">
-
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-2xl font-bold text-gray-800 dark:text-white">TaskFlow</h1>
-      <button id="toggleDark"
-        class="bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded transition">
-        🌙
-      </button>
+<body id="body" style="background-color: #f0f2f5; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; transition: 0.3s;">
+    <div id="card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 360px; transition: 0.3s;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1 id="title" style="margin: 0; font-size: 24px; color: #333;">TaskFlow</h1>
+            <button id="theme-toggle" style="cursor: pointer; padding: 8px; border-radius: 8px; border: 1px solid #ddd; background: #eee; font-size: 18px;">🌙</button>
+        </div>
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+            <input type="text" id="task-input" placeholder="Escribe una tarea..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; outline: none;">
+            <button id="add-task" style="background: #4a90e2; color: white; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 20px; font-weight: bold;">+</button>
+        </div>
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+            <select id="category-select" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer;">
+                <option value="Trabajo">Trabajo</option>
+                <option value="Casa">Casa</option>
+                <option value="Estudio">Estudio</option>
+            </select>
+            <select id="priority-select" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer;">
+                <option value="Baja">Baja</option>
+                <option value="Media">Media</option>
+                <option value="Alta">Alta</option>
+            </select>
+        </div>
+        <input type="text" placeholder="Buscar tarea..." style="width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 15px; outline: none;">
+        <p style="font-size: 14px; color: #666; font-weight: bold; margin: 10px 0;">Tareas pendientes: <span id="task-count">0</span></p>
+        <div id="task-list" style="max-height: 300px; overflow-y: auto;"></div>
     </div>
-
-    <div class="flex gap-2 mb-3">
-      <input id="taskInput" type="text" placeholder="Escribe una tarea..."
-        class="border p-2 rounded w-full dark:bg-gray-700 dark:text-white">
-
-      <button id="addTask"
-        class="bg-blue-500 text-white px-4 rounded hover:bg-blue-600 transition">
-        +
-      </button>
-    </div>
-
-    <div class="flex gap-2 mb-3">
-      <select id="category"
-        class="border p-2 rounded w-1/2 dark:bg-gray-700 dark:text-white">
-        <option value="Trabajo">Trabajo</option>
-        <option value="Casa">Casa</option>
-        <option value="Estudio">Estudio</option>
-      </select>
-
-      <select id="priority"
-        class="border p-2 rounded w-1/2 dark:bg-gray-700 dark:text-white">
-        <option value="baja">Baja</option>
-        <option value="media">Media</option>
-        <option value="alta">Alta</option>
-      </select>
-    </div>
-
-    <input id="search" type="text" placeholder="Buscar tarea..."
-      class="border p-2 rounded w-full mb-3 dark:bg-gray-700 dark:text-white">
-
-    <p id="taskCount" class="mb-2 text-gray-600 dark:text-gray-300"></p>
-
-    <ul id="taskList" class="space-y-2"></ul>
-
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

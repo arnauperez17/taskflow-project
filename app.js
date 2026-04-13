@@ -1,120 +1,162 @@
+/**
+ * TaskFlow - Frontend Logic (Fase D: Transparencia de red)
+ * Conectado al servidor Node.js + Express
+ */
 
-const taskInput = document.getElementById("taskInput");
-const addTask = document.getElementById("addTask");
-const taskList = document.getElementById("taskList");
-const search = document.getElementById("search");
-const category = document.getElementById("category");
-const priority = document.getElementById("priority");
-const toggleDark = document.getElementById("toggleDark");
-const taskCount = document.getElementById("taskCount");
+const API_URL = 'http://localhost:5000/api/v1/tasks';
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// Referencias al DOM
+const body = document.getElementById('body');
+const card = document.getElementById('card');
+const title = document.getElementById('title');
+const themeBtn = document.getElementById('theme-toggle');
+const taskInput = document.getElementById('task-input');
+const addBtn = document.getElementById('add-task');
+const taskList = document.getElementById('task-list');
+const taskCount = document.getElementById('task-count');
 
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+let isDarkMode = false;
+
+// 1. MODO OSCURO (UI pura)
+themeBtn.onclick = () => {
+    isDarkMode = !isDarkMode;
+    if (isDarkMode) {
+        body.style.backgroundColor = "#1a1a1a";
+        card.style.backgroundColor = "#2d2d2d";
+        title.style.color = "#ffffff";
+        themeBtn.textContent = "☀️";
+        themeBtn.style.background = "#444";
+        themeBtn.style.color = "white";
+    } else {
+        body.style.backgroundColor = "#f0f2f5";
+        card.style.backgroundColor = "white";
+        title.style.color = "#333";
+        themeBtn.textContent = "🌙";
+        themeBtn.style.background = "#eee";
+        themeBtn.style.color = "black";
+    }
+};
+
+// 2. OBTENER TAREAS AL CARGAR (GET)
+async function loadTasks() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Error al obtener las tareas');
+        const tasks = await response.json();
+        
+        taskList.innerHTML = ''; // Limpiar lista
+        tasks.forEach(task => renderTask(task));
+        updateCount(tasks.length);
+    } catch (error) {
+        console.error('Estado de error:', error.message);
+    }
 }
 
-function renderTasks() {
-  taskList.innerHTML = "";
+// 3. AÑADIR TAREA (POST)
+addBtn.onclick = async () => {
+    const text = taskInput.value.trim();
+    if (!text) return;
 
-  tasks.forEach((task, index) => {
-    const li = document.createElement("li");
+    const category = document.getElementById('category-select').value;
+    const priority = document.getElementById('priority-select').value;
 
-    let bgClass = "";
-    let borderColor = "";
-    if (task.priority === "alta") {
-      borderColor = "5px solid red";
-      bgClass = "bg-red-100 dark:bg-red-800";
-    } else if (task.priority === "media") {
-      borderColor = "5px solid orange";
-      bgClass = "bg-orange-100 dark:bg-orange-800";
+    // Objeto que enviamos al Backend (Contrato de red)
+    const taskData = {
+        titulo: text,
+        prioridad: priority,
+        categoria: category
+    };
+
+    try {
+        // Estado de carga
+        addBtn.disabled = true;
+        addBtn.textContent = "...";
+
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(taskData)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Error al crear la tarea');
+        }
+
+        const newTask = await response.json();
+        renderTask(newTask);
+        taskInput.value = "";
+        
+        // Actualizar contador visual
+        const currentCount = parseInt(taskCount.innerText);
+        updateCount(currentCount + 1);
+
+    } catch (error) {
+        alert("❌ Error de red: " + error.message);
+    } finally {
+        addBtn.disabled = false;
+        addBtn.textContent = "+";
+    }
+};
+
+// 4. ELIMINAR TAREA (DELETE)
+async function deleteTask(id, element) {
+    if (!confirm("¿Eliminar esta tarea?")) return;
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) throw new Error('No se pudo eliminar');
+
+        element.remove();
+        const currentCount = parseInt(taskCount.innerText);
+        updateCount(currentCount - 1);
+
+    } catch (error) {
+        alert("❌ No se pudo borrar: " + error.message);
+    }
+}
+
+// 5. RENDERIZADO (UI)
+function renderTask(task) {
+    let bgColor, borderColor, textColor;
+    
+    // Asignación de colores según prioridad (Lógica visual)
+    if (task.prioridad === "Alta") {
+        bgColor = "#ffebee"; borderColor = "#f44336"; textColor = "#b71c1c";
+    } else if (task.prioridad === "Media") {
+        bgColor = "#fffde7"; borderColor = "#fdd835"; textColor = "#827717";
     } else {
-      borderColor = "5px solid green";
-      bgClass = "bg-green-100 dark:bg-green-800";
+        bgColor = "#e8f5e9"; borderColor = "#4caf50"; textColor = "#1b5e20";
     }
 
-    li.style.borderLeft = borderColor;
-    li.className = `flex justify-between items-center p-2 rounded ${bgClass} transition-colors duration-300 cursor-default`;
+    const item = document.createElement('div');
+    item.style.display = "flex";
+    item.style.justifyContent = "space-between";
+    item.style.alignItems = "center";
+    item.style.padding = "12px";
+    item.style.marginTop = "10px";
+    item.style.borderRadius = "8px";
+    item.style.backgroundColor = bgColor;
+    item.style.borderLeft = `6px solid ${borderColor}`;
+    item.style.color = textColor;
 
-    const left = document.createElement("div");
+    item.innerHTML = `
+        <span><strong>${task.titulo}</strong></span>
+        <button style="background: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; padding: 5px 10px;">X</button>
+    `;
 
-    const span = document.createElement("span");
-    span.textContent = task.text;
-    span.className = task.completed ? "line-through text-gray-400 cursor-pointer" : "dark:text-white cursor-pointer";
+    // Evento para el botón X
+    item.querySelector('button').onclick = () => deleteTask(task.id, item);
 
-    span.addEventListener("click", () => {
-      task.completed = !task.completed;
-      saveTasks();
-      renderTasks();
-    });
-
-    const info = document.createElement("small");
-    info.textContent = ` (${task.category} - ${task.priority})`;
-    info.className = "ml-2 text-gray-500 dark:text-gray-300";
-
-    left.appendChild(span);
-    left.appendChild(info);
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
-    deleteBtn.className = "bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition";
-    deleteBtn.addEventListener("click", () => {
-      tasks.splice(index, 1);
-      saveTasks();
-      renderTasks();
-    });
-
-    li.appendChild(left);
-    li.appendChild(deleteBtn);
-
-    taskList.appendChild(li);
-  });
-
-  taskCount.textContent = `Tareas pendientes: ${tasks.filter(t => !t.completed).length}`;
+    taskList.appendChild(item);
 }
 
-function addNewTask() {
-  const text = taskInput.value.trim();
-  if (!text) return;
-
-  tasks.push({
-    text,
-    completed: false,
-    category: category.value,
-    priority: priority.value
-  });
-
-  taskInput.value = "";
-  saveTasks();
-  renderTasks();
+function updateCount(num) {
+    taskCount.innerText = num;
 }
 
-addTask.addEventListener("click", addNewTask);
-taskInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") addNewTask();
-});
-
-search.addEventListener("input", () => {
-  const value = search.value.toLowerCase();
-  Array.from(taskList.children).forEach(item => {
-    const text = item.querySelector("span").textContent.toLowerCase();
-    item.style.display = text.includes(value) ? "flex" : "none";
-  });
-});
-
-toggleDark.addEventListener("click", () => {
-  const html = document.documentElement;
-  html.classList.toggle("dark");
-  toggleDark.textContent = html.classList.contains("dark") ? "☀️" : "🌙";
-  localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-});
-
-if (localStorage.getItem("theme") === "dark") {
-  document.documentElement.classList.add("dark");
-  toggleDark.textContent = "☀️";
-} else {
-  toggleDark.textContent = "🌙";
-}
-
-
-renderTasks();
+// Inicializar la App cargando datos del servidor
+loadTasks();
